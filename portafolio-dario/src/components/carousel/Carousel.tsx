@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-interface Repo {
+interface Info {
   name: string;
   description: string;
   html_url: string;
@@ -8,41 +8,57 @@ interface Repo {
 }
 
 const Carousel = () => {
-  const [repos, setRepos] = useState<Repo[]>([]);
+  const [info, setInfo] = useState<Info[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const fetchApi = async () => {
-      const response = await fetch('https://api.github.com/users/DARIOVRUNA/repos');
+      const response = await fetch(
+        "https://api.github.com/users/DARIOVRUNA/repos"
+      );
       const data = await response.json();
-      setRepos(data.filter((repo: Repo) => !repo.private));
+      setInfo(data.filter((repo: Info) => !repo.private));
     };
 
     fetchApi();
   }, []);
 
   const handlePrevClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex === 0 ? repos.length - 1 : prevIndex - 1));
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? info.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNextClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex === repos.length - 1 ? 0 : prevIndex + 1));
+    setActiveIndex((prevIndex) =>
+      prevIndex === info.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
-    <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        {repos.length > 0 ? (
-          repos.map((repo, index) => (
+    <div
+      id="carouselExampleInterval"
+      className="carousel slide  "
+      data-bs-ride="carousel"
+    >
+      <div className="carousel-inner ">
+        {info.length > 0 ? (
+          info.map((repo, index) => (
             <div
-              className={`carousel-item ${index === activeIndex ? 'active' : ''}`}
+              className={`carousel-item ${
+                index === activeIndex ? "active" : ""
+              }`}
               data-bs-interval="10000"
               key={repo.name}
             >
-              <div>
-                <h5>{repo.name}</h5>
-                <p>{repo.description}</p>
-                <a href={repo.html_url}>Ver repositorio</a>
+              <div className="card ">
+                <div className="card-body ">
+                  <h5 className="card-title">{repo.name}</h5>
+                  <p className="card-text ">{repo.description}</p>
+                  <a href={repo.html_url} className="btn btn-primary">
+                    Ver repositorio
+                  </a>
+                </div>
               </div>
             </div>
           ))
@@ -52,11 +68,23 @@ const Carousel = () => {
           </div>
         )}
       </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev" onClick={handlePrevClick}>
+      <button
+        className="carousel-control-prev "
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide="prev"
+        onClick={handlePrevClick}
+      >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Previous</span>
       </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next" onClick={handleNextClick}>
+      <button
+        className="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide="next"
+        onClick={handleNextClick}
+      >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>

@@ -22,15 +22,15 @@ export default function Home() {
         <div >
         <PersonalInfo />
         </div>
-        <div>
+        <div className="container">
         <Carousel />
         </div>
-        <div>
+        <div className="container">
         <CallAction />
         </div>
-        <div>
+        
         <Footer />
-        </div>
+        
       </main>
     </>
   );

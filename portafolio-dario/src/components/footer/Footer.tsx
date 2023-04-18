@@ -4,25 +4,35 @@ import { faFacebook, faTwitter, faLinkedin, faInstagram } from '@fortawesome/fre
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-dark text-light py-3">
-      <div className="container">
+    <footer className="footer mt-auto py-3 bg-light">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-md-6">
-            <p>&copy; {new Date().getFullYear()} My Website</p>
+          <div className="col-sm-6">
+            <span className="text-muted">©️ 2023 Mi Sitio Web</span>
           </div>
-          <div className="col-md-6 text-md-end">
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faFacebook} size="2x" className="me-3" />
+          <div className="col-sm-6">
+            <nav className="nav justify-content-end">
+              <div className="col-sm-6">
+              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faFacebook} size="1x" className="col-me-3" />
             </a>
-            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faTwitter} size="2x" className="me-3" />
+              </div >
+              <div className="col-sm-6">
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faTwitter} size="1x" className="col-me-3" />
             </a>
+              </div>
+            <div className="col-sm-6">
             <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" className="me-3" />
+              <FontAwesomeIcon icon={faLinkedin} size="1x" className="col-me-3" />
             </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faInstagram} size="2x" />
+            </div>
+              <div className="col-sm-6">
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faInstagram} size="1x" />
             </a>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
