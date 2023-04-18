@@ -1,10 +1,12 @@
-import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import  Carousel  from '../components/carousel/Carousel'
+import Head from "next/head";
+import styles from "@/styles/Home.module.css";
+import Carousel from "../components/carousel/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from '@/components/header/Header';
-import Footer from '@/components/footer/Footer';
-
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+import Call from "@/components/personalInfo/PersonalInfo";
+import PersonalInfo from "@/components/personalInfo/PersonalInfo";
+import CallAction from "@/components/callAction/CallAction";
 
 export default function Home() {
   return (
@@ -16,14 +18,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className= {styles.main}>
-
-         <Carousel />
-
-         <Footer />
-
+      <main className={styles.main}>
+        <div >
+        <PersonalInfo />
+        </div>
+        <div>
+        <Carousel />
+        </div>
+        <div>
+        <CallAction />
+        </div>
+        <div>
+        <Footer />
+        </div>
       </main>
-     
     </>
-  )
+  );
 }
