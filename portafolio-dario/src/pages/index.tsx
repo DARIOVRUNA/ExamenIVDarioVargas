@@ -17,20 +17,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <main className={styles.main}>
-        <div >
-        <PersonalInfo />
+      <main>
+        <Header />
+        <div>
+          <PersonalInfo />
         </div>
         <div className="container">
-        <Carousel />
+          <Carousel />
         </div>
         <div className="container">
-        <CallAction />
+          <CallAction />
         </div>
-        
+
         <Footer />
-        
       </main>
     </>
   );
